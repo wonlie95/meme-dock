@@ -1,0 +1,21 @@
+# 依赖和构建结果可以由 package.json / package-lock.json 重新生成，不提交到源码仓库。
+node_modules/
+dist/
+release/
+
+# Electron 和打包器的本地缓存体积很大，也不属于项目源码。
+.electron-cache/
+.electron-builder-cache/
+.localappdata/
+.npm-cache/
+
+# 本地辅助文件、日志与用户提供的 QQ 表情包不上传。
+.agents/
+*.eif
+face.b64
+*.log
+
+# Windows 与编辑器的个人配置。
+Thumbs.db
+Desktop.ini
+.vscode/

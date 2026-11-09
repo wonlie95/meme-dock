@@ -1,0 +1,54 @@
+{
+  "name": "meme-dock",
+  "version": "1.0.0",
+  "description": "一个快捷唤起的本地表情包管理与发送工具",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "pack:win": "electron-builder --win portable nsis"
+  },
+  "dependencies": {
+    "cfb": "^1.2.2",
+    "gifuct-js": "^2.1.2",
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.0.3",
+    "electron": "37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.memodock.desktop",
+    "productName": "MemeDock",
+    "asar": true,
+    "files": [
+      "**/*",
+      "!dist/**",
+      "!release/**",
+      "!.npm-cache/**",
+      "!.electron-cache/**",
+      "!.electron-builder-cache/**",
+      "!.localappdata/**",
+      "!*.eif",
+      "!face.b64",
+      "!*.log"
+    ],
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ]
+    },
+    "portable": {
+      "artifactName": "MemeDock-${version}-Windows.exe"
+    },
+    "nsis": {
+      "artifactName": "MemeDock-${version}-Setup.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
